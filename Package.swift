@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "OfflineEssentials",
     platforms: [
-        .iOS(.v13) // Specifies iOS 13.0 or newer
+        .iOS(.v16) // Specifies iOS 16.0 or newer
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
