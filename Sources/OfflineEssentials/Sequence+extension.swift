@@ -9,7 +9,7 @@ import Foundation
 
 @available(iOS 13.0.0, *)
 extension Sequence {
-    func asyncMap<T>(
+    public func asyncMap<T>(
         _ transform: (Element) async throws -> T
     ) async rethrows -> [T] {
         var values = [T]()
@@ -20,12 +20,8 @@ extension Sequence {
 
         return values
     }
-}
 
-
-@available(iOS 13.0.0, *)
-extension Sequence {
-    func asyncForEach(
+    public func asyncForEach(
         _ body: (Int, Element) async throws -> Void
     ) async rethrows {
         for (index, element) in self.enumerated() {
