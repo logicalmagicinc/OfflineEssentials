@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct EmptySquare: View {
+public struct EmptySquare: View {
     @State var height: CGFloat = 10
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             let sideLength = geometry.size.width
             Color.clear
@@ -19,11 +19,5 @@ struct EmptySquare: View {
                     height = sideLength
                 }
         }.frame(height: height)
-    }
-}
-
-struct EmptySquare_Previews: PreviewProvider {
-    static var previews: some View {
-        EmptySquare()
     }
 }

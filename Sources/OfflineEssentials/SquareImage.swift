@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct SquareImage: View {
+public struct SquareImage: View {
     var image: UIImage
     @State private var height: CGFloat = 10
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             let sideLength = geometry.size.width
             
