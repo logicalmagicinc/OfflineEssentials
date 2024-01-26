@@ -7,7 +7,7 @@
 
 import Foundation
 
-@available(iOS 13.0.0, *)
+//@available(iOS 13.0.0, *)
 extension Sequence {
     public func asyncMap<T>(
         _ transform: (Element) async throws -> T
