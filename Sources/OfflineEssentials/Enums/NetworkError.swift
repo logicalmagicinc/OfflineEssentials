@@ -7,6 +7,15 @@
 
 import Foundation
 
+
+public struct HTTPError: Error {
+    public init(statusCode: Int) {
+        self.statusCode = statusCode
+    }
+    let statusCode: Int
+}
+
+
 public enum NetworkError: Error, LocalizedError {
     case invalidURL
     case invalidEmail
