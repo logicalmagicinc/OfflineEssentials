@@ -33,9 +33,9 @@ public class NetworkService {
             }
             
             let (data, response) = try await URLSession.shared.data(for: request)
-            
-            let str = String(decoding: data, as: UTF8.self)
-            print(str)
+//            
+//            let str = String(decoding: data, as: UTF8.self)
+//            print(str)
             
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
@@ -66,22 +66,28 @@ public class NetworkService {
         }
         do {
             var request = URLRequest(url: url)
-            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             request.httpMethod = "POST"
             if let token {
                 request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
             }
+            
             if let content {
                 let data = try JSONEncoder.network.encode(content)
+//                print("POSTING - \(data)")
                 request.httpBody = data
+//                let str = String(decoding: data, as: UTF8.self)
+//                print(str)
             }
+//            print(content)
             
             
             let (data, response) = try await URLSession.shared.data(for: request)
             
-            let str = String(decoding: data, as: UTF8.self)
-            print(str)
+//            let str = String(decoding: data, as: UTF8.self)
+//            print(str)
             
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
@@ -126,8 +132,8 @@ public class NetworkService {
             
             let (data, response) = try await URLSession.shared.data(for: request)
             
-            let str = String(decoding: data, as: UTF8.self)
-            print(str)
+//            let str = String(decoding: data, as: UTF8.self)
+//            print(str)
             
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
