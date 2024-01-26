@@ -9,7 +9,7 @@ import Foundation
 
 
 extension Date {
-    var dispatchTime: DispatchTime {
+    public var dispatchTime: DispatchTime {
         let now = Date()
         let interval = self.timeIntervalSince(now)
         return DispatchTime.now() + interval

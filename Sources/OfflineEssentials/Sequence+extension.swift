@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 13.0.0, *)
 extension Sequence {
     func asyncMap<T>(
         _ transform: (Element) async throws -> T
@@ -22,6 +23,7 @@ extension Sequence {
 }
 
 
+@available(iOS 13.0.0, *)
 extension Sequence {
     func asyncForEach(
         _ body: (Int, Element) async throws -> Void

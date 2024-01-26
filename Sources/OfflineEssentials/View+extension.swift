@@ -8,8 +8,9 @@
 import Foundation
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension View {
-    func onReceive(
+    public func onReceive(
         _ name: Notification.Name,
         center: NotificationCenter = .default,
         object: AnyObject? = nil,

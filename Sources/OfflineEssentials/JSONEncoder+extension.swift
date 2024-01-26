@@ -8,7 +8,7 @@
 import Foundation
 
 extension JSONEncoder {
-    static var network: JSONEncoder {
+    public static var network: JSONEncoder {
         
         let encoder = JSONEncoder()
         let dateFormatter = DateFormatter()
