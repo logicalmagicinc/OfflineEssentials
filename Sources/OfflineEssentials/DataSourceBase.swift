@@ -22,46 +22,8 @@ open class DataStoreBase: ObservableObject, Observable {
     
     @Published public var isOnline: Bool = false
     @Published public var dataSource: Dictionary<String, Any?> = Dictionary()
-    
-    // APP Specific Stuff
-//    @Published var authenticatedUser: User?
-//    @Published var adminUser: User?
-    
-//    @Published var messages: [Message]?
-//    @Published var teamMembers: [User]?
-    
-    
-    // System Stuff
-    
-    
-//    @Published private var
-//    public func registerSource () {
-//        
-//    }
-    
-    
-//    private var token: String? {
-//        QuickStorage.shared.string(forKey: .accessToken)
-//    }
-    
-    
-//    @objc func notificationReceived(_ notification: Notification) {
-//        // Handle the notification
-//        print("Notification received!")
-//        Task {
-//            await self.reloadData()
-//        }
-//    }
-    
-//    @objc func logoutNotification(_ notification: Notification) {
-//        // Handle the notification
-//        authenticatedUser = nil
-//    }
-     
+
     public init () {
-        
-//        self.baseUrl = baseUrl
-        
         networkMonitor.pathUpdateHandler = { path in
             DispatchQueue.main.async {
                 self.isOnline = path.status == .satisfied
@@ -76,10 +38,6 @@ open class DataStoreBase: ObservableObject, Observable {
         }
         
         networkMonitor.start(queue: workerQueue)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived(_:)), name: .Chat, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(logoutNotification(_:)), name: .ActiveViewChanged_Unauthenticated, object: nil)
-        
         Task {
             await reloadData()
         }
@@ -112,65 +70,12 @@ open class DataStoreBase: ObservableObject, Observable {
     
     // Expecting to be overwritten
     open func loadFromFiles() async {
-        
-//        if case let .success(success) = (await FileService.READ(url: "user.json") as Result<User, Error>) {
-//            DispatchQueue.main.async {
-//                print("Load user from offline storage")
-//                self.authenticatedUser = success
-//            }
-//        }
-//        
-//        if case let .success(success) = (await FileService.READ(url: "messages.json") as Result<[Message], Error>) {
-//            DispatchQueue.main.async {
-//                print("Load messages from offline storage")
-//                self.messages = success
-//            }
-//        }
-//        
-//        if case let .success(success) = (await FileService.READ(url: "teamMembers.json") as Result<[User], Error>) {
-//            DispatchQueue.main.async {
-//                print("Load messages from offline storage")
-//                self.teamMembers = success
-//            }
-//        }
-        
+                
     }
     
     // Expecting to be overwritten
     open func loadFromNetwork() async {
-        // Load the user!
-//        if case let .success(success) = (await NetworkService(baseUrl: baseUrl).GET(url: "api/me", token: token) as Result<User, Error>) {
-//            DispatchQueue.main.async {
-//                self.authenticatedUser = success
-//                Task {
-//                    await FileService.WRITE(url: "user.json", content: success)
-//                }
-//            }
-//        }
-//        
-//        if case let .success(success) = (await NetworkService(baseUrl: baseUrl).GET(url: "api/message", token: token) as Result<[Message], Error>) {
-//            DispatchQueue.main.async {
-//                self.messages = success
-//                Task {
-//                    await FileService.WRITE(url: "messages.json", content: success)
-//                }
-//            }
-//        }
-//        
-//        struct TeamWrapper: Codable {
-//            var team: Team
-//            var members: [User]
-//        }
-//        if case let .success(success) = (await NetworkService(baseUrl: baseUrl).GET(url: "api/team", token: token) as Result<TeamWrapper, Error>) {
-//            DispatchQueue.main.async {
-//                self.teamMembers = success.members
-//                print(success)
-////                print("Team \(self.team?.members?.count)")
-//                Task {
-//                    await FileService.WRITE(url: "teamMembers.json", content: success.members)
-//                }
-//            }
-//        }
+
     }
     
 }
