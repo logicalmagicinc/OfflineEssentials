@@ -14,7 +14,7 @@ open class DataStoreBase: ObservableObject, Observable {
     
     private let networkMonitor = NWPathMonitor()
     private let workerQueue = DispatchQueue(label: "Monitor")
-    @Published public var baseUrl: String = ""
+//    @Published public var baseUrl: String = ""
 //    @Published public var token: String? = nil
     
     // Could store all the app data in a dictionary. and give a typed way to set and recieve it?
@@ -58,9 +58,9 @@ open class DataStoreBase: ObservableObject, Observable {
 //        authenticatedUser = nil
 //    }
      
-    public init (baseUrl: String) {
+    public init () {
         
-        self.baseUrl = baseUrl
+//        self.baseUrl = baseUrl
         
         networkMonitor.pathUpdateHandler = { path in
             DispatchQueue.main.async {
