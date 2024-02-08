@@ -5,6 +5,8 @@
 //  Created by Justin Allen on 1/26/24.
 //
 
+// Revoking a session or all sessions doesn't send the notificaton to log out.
+
 import Foundation
 import Network
 

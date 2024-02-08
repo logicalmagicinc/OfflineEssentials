@@ -29,6 +29,23 @@ public class FileService {
     
     public static func WRITE<T: Codable>(url endpoint: String, content: T) async -> Result<T, Error> {
         
+        // new
+        guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return .failure(FileIOError.invalidPath)
+        }
+        
+        let fileURL = dir.appendingPathComponent(endpoint) // Use appendingPathComponent for path construction
+        
+        // Create the directories leading up to the file if they do not exist
+        let directoryURL = fileURL.deletingLastPathComponent() // Get the directory part of the fileURL
+        do {
+            try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print("Error creating directory \(directoryURL): \(error)")
+            return .failure(error) // Return failure if unable to create the directory
+        }
+        
+        // end new
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = dir.appending(path: endpoint)
             do {
