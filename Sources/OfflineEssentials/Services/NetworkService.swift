@@ -15,7 +15,7 @@ public class NetworkService {
         self.baseUrl = baseUrl
     }
     
-    let baseUrl: String
+    public let baseUrl: String
 //    var baseUrl: String  {
 //        return Config.getUnauthenticatedUrl(env:  SettingsStore().environment)
 //    } // "http://192.168.10.248:3000"
