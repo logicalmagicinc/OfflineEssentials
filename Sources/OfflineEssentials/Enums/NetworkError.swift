@@ -24,6 +24,7 @@ public enum NetworkError: Error, LocalizedError {
     case responseParse
     case unauthenticated
 
+    case withMessage(String)
     // Throw in all other cases
     case unexpected(code: Int)
     
@@ -69,6 +70,11 @@ public enum NetworkError: Error, LocalizedError {
             return NSLocalizedString(
                 "An unexpected error occurred.",
                 comment: "Unexpected Error"
+            )
+        case .withMessage(let message):
+            return NSLocalizedString(
+                message,
+                comment: "Error Occurred"
             )
         }
     }
