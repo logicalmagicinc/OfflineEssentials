@@ -55,14 +55,14 @@ open class DataStoreBase: ObservableObject, Observable {
         print("---------------- reload data called --------------")
         
         if isOnline {
-            Task {
+//            Task {
                 await loadFromNetwork()
-            }
+//            }
         }
         else {
-            Task {
+//            Task {
                 await loadFromFiles()
-            }
+//            }
         }
         
         // in post this would reload the user, then also the surveys main list, and the survey questions files. but not the survey answer files.
