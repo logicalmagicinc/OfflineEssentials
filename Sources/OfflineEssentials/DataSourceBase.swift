@@ -53,8 +53,9 @@ open class DataStoreBase: ObservableObject, Observable {
     public func reloadData() async {
         
         print("---------------- reload data called --------------")
-        
-        if isOnline {
+        let onlineStatus = isOnline
+        print(onlineStatus)
+        if onlineStatus {
 //            Task {
                 await loadFromNetwork()
 //            }
